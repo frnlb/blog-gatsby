@@ -3,7 +3,7 @@ import {LayoutProps} from "../Layout/Layout"
 
 const Container = ({children}: LayoutProps) => {
   return (
-    <div>{children}</div>
+    <div className='max-w-screen-xl m-auto'>{children}</div>
   )
 }
 
