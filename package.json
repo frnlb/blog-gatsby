@@ -17,6 +17,7 @@
     "go": "gatsby clean && gatsby develop"
   },
   "dependencies": {
+    "@fontsource/courier-prime": "^4.5.9",
     "@mdx-js/react": "^2.3.0",
     "gatsby": "^5.7.0",
     "gatsby-omni-font-loader": "^2.0.2",
