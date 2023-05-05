@@ -1,5 +1,9 @@
 import type { GatsbyConfig } from "gatsby";
 import * as dotenv from "dotenv";
+const path = require("path");
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 dotenv.config();
 console.log("process.env.CF_SPACE_ID", process.env.CF_SPACE_ID);
@@ -44,6 +48,17 @@ const config: GatsbyConfig = {
       __key: "pages",
     },
     {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": path.resolve(__dirname, "./src/components"),
+          "@constants": path.resolve(__dirname, "./src/constants"),
+          "@containers": path.resolve(__dirname, "./src/containers"),
+          "@utils": path.resolve(__dirname, "./src/utils"),
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CF_SPACE_ID,
@@ -52,6 +67,22 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
+        web: [
+          {
+            name: `Courier Prime`,
+            file: `https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
+          },
+        ],
+      },
+    },
   ],
 };
 
