@@ -104,7 +104,8 @@
     "paths": {
       "@*": ["./src/*"],
       "@components": ["./src/components/index.ts"],
-      "@constants": ["./src/constants/index.ts"]
+      "@constants": ["./src/constants/index.ts"],
+      "@utils": ["./src/utils"]
     }
   },
   "include": [
