@@ -1,4 +1,4 @@
-import allContentfulPage from "./all-contentful-pages";
+import allContentfulPage from "./all-contentful-page";
 
 export default (api: any) => {
     Promise.all([allContentfulPage(api)]);

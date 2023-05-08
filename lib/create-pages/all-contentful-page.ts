@@ -5,30 +5,25 @@ const QUERY = `
 {
     allContentfulPage {
         nodes {
-            contentful_id
-            slug
-            id
-            metaTitle
-            metaDescription
-            internalName
             __typename
-            content {
-                ... on ContentfulSection {
-                    id
-                    color {
-                        color
-                    }
-                    size
-                    __typename
-                }
-            }
+            id
+          slug
+          title
+          elementName
+          metaTitle
+          metaDescription
+          content {
+            id
+          }
         }
-    }
+      }
 }
 `
 
 export default async ({graphql, actions: {createPage}}: any) => {
     const allContentfulPages = await graphql(QUERY);
+    console.log("🚀 ~ file: all-contentful-page.ts:32 ~ allContentfulPages:", allContentfulPages)
+
     let template = path.resolve(__dirname, "../../src/templates/content.tsx");
     console.log("-----------------  CREATING CONTENT  ---------------------");
     allContentfulPages.data.allContentfulPage.nodes.forEach((page: any) => {
