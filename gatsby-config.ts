@@ -6,8 +6,6 @@ require("dotenv").config({
 });
 // Learn about environment variables: https://gatsby.dev/env-vars
 dotenv.config();
-console.log(process.env.CF_SPACE_ID);
-console.log(process.env.CF_CONTENT_DELIVERY);
 
 const config: GatsbyConfig = {
   siteMetadata: {
