@@ -1,10 +1,10 @@
 import {componentMapper} from "@utils";
 import {graphql} from "gatsby";
-import React, { type Fragment } from "react";
+import React from "react";
 
 const ContentTemplate = ({ data: {contentfulPage}}: any): any => {
     const data = contentfulPage;
-    console.log("🚀 ~ file: content.tsx:7 ~ ContentTemplate ~ data:", data)
+    console.log("🚀 ~ file: content.tsx:8 ~ ContentTemplate ~ data:", data)
 
     return (
         <>
@@ -20,12 +20,17 @@ export const query: any = graphql`
     query ($id: String!) {
         contentfulPage(id: { eq: $id }) {
             id
-            slug
-            content {
+      internalName
+      metaDescription
+      metaTitle
+      slug
+      title
+        content {
                 ... on ContentfulSection {
                     ...Section
                 }
             }
         }
     }
+
 `

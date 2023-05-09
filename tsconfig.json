@@ -105,7 +105,8 @@
       "@*": ["./src/*"],
       "@components": ["./src/components/index.ts"],
       "@constants": ["./src/constants/index.ts"],
-      "@utils": ["./src/utils"]
+      "@utils": ["./src/utils"],
+      "@types": ["./src/types"]
     }
   },
   "include": [
