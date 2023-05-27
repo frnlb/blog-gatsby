@@ -54,6 +54,7 @@ const config: GatsbyConfig = {
           "@constants": path.resolve(__dirname, "./src/constants"),
           "@containers": path.resolve(__dirname, "./src/containers"),
           "@utils": path.resolve(__dirname, "./src/utils"),
+          "@types": path.resolve(__dirname, "./src/types"),
         },
       },
     },

@@ -3,31 +3,45 @@ import path from "path";
 
 const QUERY = `
 {
-    allContentfulPage {
-        nodes {
-            __typename
+  allContentfulPage {
+    nodes {
+      __typename
+      id
+      slug
+      internalName
+      title
+      metaTitle
+      metaDescription
+      content {
+        ... on ContentfulSection {
+          __typename
+          id
+          internalName
+          numberOfColumns
+          size
+          color {
             id
-          slug
-          title
-          elementName
-          metaTitle
-          metaDescription
+            internalName
+          }
           content {
-            id
+            __typename
           }
         }
+
       }
+    }
+  }
 }
 `
 
 export default async ({graphql, actions: {createPage}}: any) => {
     const allContentfulPages = await graphql(QUERY);
-    console.log("🚀 ~ file: all-contentful-page.ts:32 ~ allContentfulPages:", allContentfulPages)
-
     let template = path.resolve(__dirname, "../../src/templates/content.tsx");
+
     console.log("-----------------  CREATING CONTENT  ---------------------");
     allContentfulPages.data.allContentfulPage.nodes.forEach((page: any) => {
         const content = page?.content[0];
+        // console.log("🚀 ~ \n\n: all-contentful-page.ts:46 ~~ content:", content)
 
         const pageData = {
             path: page.slug === "/" ? "/": `/${page.slug}`,
@@ -36,7 +50,11 @@ export default async ({graphql, actions: {createPage}}: any) => {
                 id: page.id
             }
         };
+
+
         if(content) {
+          console.log("\n\n\n\ncontent", content)
+          console.log("content.typename", content.__typename)
             console.log("  Creating page: ", `/${page.slug}/`, content.__typename, page.id);
 
         }
