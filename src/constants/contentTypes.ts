@@ -4,4 +4,5 @@ export default {
   COLOR: "ContentfulColor",
   CTA: "ContentfulCta",
   SECTION: "ContentfulSection",
+  IMAGE: "ContentfulImage",
 };

@@ -18,6 +18,9 @@ export const Section = graphql`
       ... on ContentfulFooter {
         ...Footer
       }
+      ... on ContentfulImage {
+        ...Image
+      }
     }
   }
 `;

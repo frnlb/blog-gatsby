@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@frnlb/react-tailwind-lib/dist/**/*.{js, jsx, ts, tsx}",
   ],
   theme: {
     screens: {
